@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Gdscript/ButtonGdscript/deconectButton.gd" type="Script" id=1]
+
+[node name="deconectButton" type="Button"]
+margin_right = 480.0
+text = "Deconnexion"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+[connection signal="pressed" from="." to="." method="_on_deconectButton_pressed"]
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]

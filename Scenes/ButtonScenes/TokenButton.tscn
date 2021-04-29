@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Gdscript/ButtonGdscript/TokenButton.gd" type="Script" id=1]
+
+[node name="TokenButton" type="Button"]
+margin_right = 483.178
+margin_bottom = 23.6973
+text = "Validate access token"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+[connection signal="pressed" from="." to="." method="_on_TokenButton_pressed"]
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]

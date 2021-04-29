@@ -1,4 +1,4 @@
-extends Control
+extends Button
 
 
 # Declare member variables here. Examples:
@@ -16,6 +16,5 @@ func _ready():
 #	pass
 
 
-func _on_LoginButton_pressed():
-	get_tree().change_scene("res://Login.tscn")
+func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 	pass # Replace with function body.

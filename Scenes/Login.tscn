@@ -1,14 +1,14 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
-[ext_resource path="res://Login.gd" type="Script" id=2]
+[ext_resource path="res://Gdscript/Login.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
 
 [node name="Login" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 1.0
 margin_right = 1.0
-script = ExtResource( 2 )
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -24,45 +24,57 @@ __meta__ = {
 
 [node name="Logo" type="Sprite" parent="VBoxContainer"]
 position = Vector2( 229.565, 269.087 )
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 
 [node name="UserNameLabel" type="Label" parent="VBoxContainer"]
-margin_top = 292.0
+margin_top = 283.0
 margin_right = 480.0
-margin_bottom = 306.0
+margin_bottom = 297.0
 text = "Username:"
 align = 3
 valign = 3
 
-[node name="UserNameTextEdit" type="LineEdit" parent="VBoxContainer"]
-margin_top = 310.0
+[node name="UserNameLineEdit" type="LineEdit" parent="VBoxContainer"]
+margin_top = 301.0
 margin_right = 480.0
-margin_bottom = 334.0
+margin_bottom = 325.0
 
 [node name="PasswordLabel" type="Label" parent="VBoxContainer"]
-margin_top = 338.0
+margin_top = 329.0
 margin_right = 480.0
-margin_bottom = 352.0
+margin_bottom = 343.0
 text = "Password:"
 align = 3
 valign = 3
 
-[node name="PasswordTextEdit" type="LineEdit" parent="VBoxContainer"]
-margin_top = 356.0
+[node name="PasswordLineEdit" type="LineEdit" parent="VBoxContainer"]
+margin_top = 347.0
 margin_right = 480.0
-margin_bottom = 380.0
+margin_bottom = 371.0
+secret = true
 
 [node name="LoginButton" type="Button" parent="VBoxContainer"]
-margin_top = 384.0
+margin_top = 375.0
 margin_right = 480.0
-margin_bottom = 404.0
+margin_bottom = 395.0
 text = "Connexion"
 
 [node name="SignUpButton" type="Button" parent="VBoxContainer"]
-margin_top = 408.0
+margin_top = 399.0
 margin_right = 480.0
-margin_bottom = 428.0
+margin_bottom = 419.0
 text = "Sign Up"
 
+[node name="ConnexionFailedLabel" type="Label" parent="VBoxContainer"]
+margin_top = 423.0
+margin_right = 480.0
+margin_bottom = 437.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+text = "Username or password is incorect !"
+align = 1
+valign = 1
+
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
+[connection signal="pressed" from="VBoxContainer/LoginButton" to="." method="_on_LoginButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/SignUpButton" to="." method="_on_SignUpButton_pressed"]
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]

@@ -1,0 +1,84 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Gdscript/Logged.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/ButtonScenes/deconectButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/ButtonScenes/TokenButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/ButtonScenes/DeleteButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/ButtonScenes/PasswordChangeButton.tscn" type="PackedScene" id=5]
+
+[node name="Logged" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NameLabel" type="Label" parent="VBoxContainer"]
+margin_right = 480.0
+margin_bottom = 14.0
+text = "Hello World"
+
+[node name="TokenButton" parent="VBoxContainer" instance=ExtResource( 3 )]
+margin_top = 18.0
+margin_right = 480.0
+margin_bottom = 38.0
+
+[node name="PasswordLabel" type="Label" parent="VBoxContainer"]
+margin_top = 42.0
+margin_right = 480.0
+margin_bottom = 56.0
+text = "Password :"
+
+[node name="PasswordLineEdit" type="LineEdit" parent="VBoxContainer"]
+margin_top = 60.0
+margin_right = 480.0
+margin_bottom = 84.0
+secret = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PasswordLabel2" type="Label" parent="VBoxContainer"]
+margin_top = 88.0
+margin_right = 480.0
+margin_bottom = 102.0
+text = "Password confirmation  :"
+
+[node name="PasswordLineEdit2" type="LineEdit" parent="VBoxContainer"]
+margin_top = 106.0
+margin_right = 480.0
+margin_bottom = 130.0
+secret = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PasswordChangeButton" parent="VBoxContainer" instance=ExtResource( 5 )]
+anchor_right = 0.0
+margin_top = 134.0
+margin_right = 480.0
+margin_bottom = 154.0
+
+[node name="VSplitContainer" type="VSplitContainer" parent="VBoxContainer"]
+margin_top = 158.0
+margin_right = 480.0
+margin_bottom = 158.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="deconectButton" parent="VBoxContainer" instance=ExtResource( 2 )]
+margin_top = 162.0
+margin_bottom = 182.0
+
+[node name="DeleteButton" parent="VBoxContainer" instance=ExtResource( 4 )]
+margin_top = 186.0
+margin_bottom = 206.0

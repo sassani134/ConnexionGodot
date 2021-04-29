@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Gdscript/ButtonGdscript/DeleteButton.gd" type="Script" id=1]
+
+[node name="DeleteButton" type="Button"]
+margin_right = 480.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+text = "Delrte Account"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]

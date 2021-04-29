@@ -1,4 +1,4 @@
-extends Control
+extends Button
 
 
 # Declare member variables here. Examples:
@@ -16,6 +16,10 @@ func _ready():
 #	pass
 
 
-func _on_SignUpButton_pressed():
-	get_tree().change_scene("res://SignUp.tscn")
+func _on_HTTPRequest_request_completed(result, response_code, headers, body):
+	
+	pass # Replace with function body.
+
+
+func _on_deconectButton_pressed():
 	pass # Replace with function body.
