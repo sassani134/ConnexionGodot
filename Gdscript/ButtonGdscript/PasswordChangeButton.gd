@@ -20,13 +20,13 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 		$Label.visible = true
 
 func _on_PasswordChangeButton_pressed():
-	if get_tree().get_root().get_node("Logged/VBoxContainer/PasswordLineEdit").get_text() == get_tree().get_root().get_node("Logged/VBoxContainer/PasswordLineEdit2").get_text():
+	if get_tree().get_root().get_node("Logged/VBoxContainer/PasswordLineEdit").get_text() != get_tree().get_root().get_node("Logged/VBoxContainer/PasswordLineEdit2").get_text():
 		$Label.text = "passwords must be identical"
 		$Label.add_color_override("font_color", Color(1,0,0))
 		$Label.visible = true
-		pass
+		return
 	var headers = ["Content-Type: application/json","uid:" +Global.uid,"client:" +Global.client, "access-token:"+ Global.accessToken]
-	var body = {"password":get_tree().get_root().get_node("Logged/VBoxContainer/PasswordLineEdit").get_text(),"password_confirmation":get_tree().get_root().get_node("Logged/VBoxContainer/PasswordLineEdit").get_text()}
+	var body = {"password":get_tree().get_root().get_node("Logged/VBoxContainer/PasswordLineEdit").get_text(),"password_confirmation":get_tree().get_root().get_node("Logged/VBoxContainer/PasswordLineEdit2").get_text()}
 	body = JSON.print(body)
 	var error = $HTTPRequest.request("http://127.0.0.1:3000/auth/password",headers, true, HTTPClient.METHOD_PUT, body)
 	if error != OK:
