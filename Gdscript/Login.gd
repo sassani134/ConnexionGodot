@@ -14,7 +14,7 @@ func _ready():
 
 
 func _on_SignUpButton_pressed():
-	get_tree().change_scene("res://SignUp.tscn")
+	get_tree().change_scene("res://Scenes/SignUp.tscn")
 	pass # Replace with function body.
 
 
